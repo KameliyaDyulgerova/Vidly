@@ -9,12 +9,16 @@
     different data structure, as long as it is enumerable, our view code
     will remain unchanged.
 *@
+
 @{
     ViewBag.Title = "Customers";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Customers</h2>
+<p>
+    @Html.ActionLink("New Customer", "New", "Customers", null, new { @class = "btn btn-primary" })
+</p>
 
 <table id="customers" class="table table-bordered table-hover">
     <thead>

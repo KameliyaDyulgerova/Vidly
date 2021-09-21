@@ -4,6 +4,8 @@ using System.Web.Mvc;
 using Vidly.Models;
 using System.Data.Entity;
 using Vidly.ViewModels;
+using System.Runtime.Caching;
+
 
 namespace Vidly.Controllers
 {
@@ -11,6 +13,7 @@ namespace Vidly.Controllers
     public class CustomersController : Controller
     {
         private ApplicationDbContext _context;
+
         public CustomersController()
         {
             _context = new ApplicationDbContext();
@@ -65,6 +68,11 @@ namespace Vidly.Controllers
       
         public ViewResult Index()
         {
+            //if (MemoryCache.Default["Genres"] == null)
+            //{
+            //    MemoryCache.Default["Genres"] = _context.Genres.ToList();
+            //}
+            //var genres = MemoryCache.Default["Genres"] as IEnumerable<Genre>;
             return View();
         }
 
@@ -96,12 +104,5 @@ namespace Vidly.Controllers
     }
 }
 
-                //private IEnumerable<Customer> GetCustomers()
-                //{
-                //    return new List<Customer>
-                //    {
-                //        new Customer { Id = 1, Name = "John Smith" },
-                //        new Customer { Id = 2, Name = "Mary Williams" }
-                //    };
-                //}
+               
             
